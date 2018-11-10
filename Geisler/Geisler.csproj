@@ -83,8 +83,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Category.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CategoryForm.resx">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810241126317_InitialCreate.resx">
       <DependentUpon>201810241126317_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
