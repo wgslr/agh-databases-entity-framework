@@ -43,9 +43,12 @@ namespace Geisler
             int row = e.RowIndex;
             Category category = (Category)dataGridView1.Rows[row].DataBoundItem;
 
-            this.productsBindingSource.DataSource = (from p in context.Products
-                                                     where p.CategoryID == category.CategoryId
-                                                     select p).ToList();
+            //this.productsBindingSource.DataSource = (from p in context.Products
+            //                                         where p.CategoryID == category.CategoryId
+            //                                         select p).ToList();
+
+            this.productsBindingSource.DataSource = context.Products
+                .Where(p => p.CategoryID == category.CategoryId).ToList();
         }
     }
 }
