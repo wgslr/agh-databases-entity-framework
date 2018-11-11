@@ -17,7 +17,6 @@ namespace Geisler
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
 
-        //[Column("Unitprice", TypeName = "money")]
         public decimal Unitprice { get; set; }
     }
 }

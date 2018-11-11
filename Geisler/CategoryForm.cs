@@ -40,7 +40,6 @@ namespace Geisler
             context.SaveChanges();
             this.categoriesGridView.Refresh();
             this.productsGridView.Refresh();
-
         }
 
 
@@ -135,7 +134,7 @@ namespace Geisler
         private void productsGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             int rowIdx = e.RowIndex;
-            
+
             var row = this.productsGridView.Rows[rowIdx];
 
             if (row == null || row.DataBoundItem == null)
@@ -154,7 +153,7 @@ namespace Geisler
                     p.Unitprice = (decimal)row.Cells[4].Value;
                     context.Products.Add(p);
                 }
-                
+
             }
         }
 
