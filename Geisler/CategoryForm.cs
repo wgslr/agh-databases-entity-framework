@@ -87,12 +87,26 @@ namespace Geisler
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void customerCombo_DropDown(object sender, EventArgs e)
         {
             this.customerCombo.DataSource = context.Customers.Local.ToBindingList(); 
+        }
+
+        private void categoryCombo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (this.categoryCombo.SelectedValue != null)
+            {
+                int catId = (int)this.categoryCombo.SelectedValue;
+                this.productCombo.DataSource = (from p in context.Products where p.CategoryID == catId select p).ToList();
+            }
+            else
+            {
+                this.productCombo.DataSource = new BindingList<Product>();
+            }
+            this.productCombo.SelectedIndex = -1;
         }
     }
 }
