@@ -47,7 +47,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.categoryCombo = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.orderButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.customerCombo = new System.Windows.Forms.ComboBox();
@@ -203,7 +203,7 @@
             // 
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.categoryCombo);
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.orderButton);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.customerCombo);
@@ -224,7 +224,6 @@
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Category";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // categoryCombo
             // 
@@ -238,14 +237,15 @@
             this.categoryCombo.ValueMember = "CategoryId";
             this.categoryCombo.SelectedValueChanged += new System.EventHandler(this.categoryCombo_SelectedValueChanged);
             // 
-            // button1
+            // orderButton
             // 
-            this.button1.Location = new System.Drawing.Point(9, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Order";
-            this.button1.UseVisualStyleBackColor = true;
+            this.orderButton.Location = new System.Drawing.Point(9, 87);
+            this.orderButton.Name = "orderButton";
+            this.orderButton.Size = new System.Drawing.Size(175, 23);
+            this.orderButton.TabIndex = 4;
+            this.orderButton.Text = "Order";
+            this.orderButton.UseVisualStyleBackColor = true;
+            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
             // label2
             // 
@@ -264,7 +264,6 @@
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Customer";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // customerCombo
             // 
@@ -390,7 +389,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox customerCombo;
         private System.Windows.Forms.ComboBox productCombo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button orderButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox categoryCombo;
