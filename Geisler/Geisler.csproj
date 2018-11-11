@@ -95,6 +95,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Category.datasource" />
     <None Include="Properties\DataSources\Customer.datasource" />
+    <None Include="Properties\DataSources\Order.datasource" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CategoryForm.resx">

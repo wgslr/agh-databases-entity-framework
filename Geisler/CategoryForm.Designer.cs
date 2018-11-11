@@ -45,6 +45,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.quantityInput = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.categoryCombo = new System.Windows.Forms.ComboBox();
             this.orderButton = new System.Windows.Forms.Button();
@@ -58,8 +66,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityInput = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).BeginInit();
@@ -67,10 +73,12 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quantityInput)).BeginInit();
             this.SuspendLayout();
             // 
             // categoriesGridView
@@ -139,7 +147,9 @@
             this.productsGridView.Name = "productsGridView";
             this.productsGridView.Size = new System.Drawing.Size(582, 150);
             this.productsGridView.TabIndex = 2;
+            this.productsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsGridView_CellContentClick);
             this.productsGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.onDefaultProductValuesNeeded);
+            this.productsGridView.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsGridView_RowLeave);
             // 
             // productId
             // 
@@ -204,6 +214,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dataGridView2);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.quantityInput);
             this.tabPage2.Controls.Add(this.label3);
@@ -220,6 +231,82 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Orders";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderIDDataGridViewTextBoxColumn,
+            this.productIDDataGridViewTextBoxColumn,
+            this.customerNameDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.orderBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(9, 144);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(623, 150);
+            this.dataGridView2.TabIndex = 9;
+            // 
+            // orderIDDataGridViewTextBoxColumn
+            // 
+            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "OrderID";
+            this.orderIDDataGridViewTextBoxColumn.HeaderText = "OrderID";
+            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
+            this.orderIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productIDDataGridViewTextBoxColumn
+            // 
+            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
+            this.productIDDataGridViewTextBoxColumn.HeaderText = "ProductID";
+            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataSource = typeof(Geisler.Order);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Quantity";
+            // 
+            // quantityInput
+            // 
+            this.quantityInput.Location = new System.Drawing.Point(63, 88);
+            this.quantityInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.quantityInput.Name = "quantityInput";
+            this.quantityInput.Size = new System.Drawing.Size(120, 20);
+            this.quantityInput.TabIndex = 7;
+            this.quantityInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label3
             // 
@@ -240,6 +327,7 @@
             this.categoryCombo.Size = new System.Drawing.Size(121, 21);
             this.categoryCombo.TabIndex = 5;
             this.categoryCombo.ValueMember = "CategoryId";
+            this.categoryCombo.SelectedIndexChanged += new System.EventHandler(this.validateOrderInput);
             this.categoryCombo.SelectedValueChanged += new System.EventHandler(this.categoryCombo_SelectedValueChanged);
             // 
             // orderButton
@@ -281,6 +369,7 @@
             this.customerCombo.TabIndex = 1;
             this.customerCombo.ValueMember = "CompanyName";
             this.customerCombo.DropDown += new System.EventHandler(this.customerCombo_DropDown);
+            this.customerCombo.SelectedIndexChanged += new System.EventHandler(this.validateOrderInput);
             // 
             // customerBindingSource
             // 
@@ -296,7 +385,8 @@
             this.productCombo.Size = new System.Drawing.Size(121, 21);
             this.productCombo.TabIndex = 0;
             this.productCombo.ValueMember = "productId";
-            this.productCombo.SelectedValueChanged += new System.EventHandler(this.productCombo_SelectedValueChanged);
+            this.productCombo.SelectedIndexChanged += new System.EventHandler(this.validateOrderInput);
+            this.productCombo.SelectedValueChanged += new System.EventHandler(this.validateOrderInput);
             // 
             // tabPage3
             // 
@@ -344,32 +434,6 @@
             this.descriptionDataGridViewTextBoxColumn1.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
             // 
-            // quantityInput
-            // 
-            this.quantityInput.Location = new System.Drawing.Point(63, 88);
-            this.quantityInput.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.quantityInput.Name = "quantityInput";
-            this.quantityInput.Size = new System.Drawing.Size(120, 20);
-            this.quantityInput.TabIndex = 7;
-            this.quantityInput.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 90);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Quantity";
-            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,7 +442,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "CategoryForm";
             this.Text = "CategoryForm";
-            this.Load += new System.EventHandler(this.CategoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).EndInit();
@@ -387,10 +450,12 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quantityInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -428,5 +493,11 @@
         private System.Windows.Forms.ComboBox categoryCombo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown quantityInput;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource orderBindingSource;
     }
 }
