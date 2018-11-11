@@ -27,9 +27,10 @@ namespace Geisler
             context = new ProdContext();
             context.Categories.Load();
             context.Products.Load();
+            context.Customers.Load();
             this.categoryBindingSource.DataSource = context.Categories.Local.ToBindingList();
             this.productsBindingSource.DataSource = context.Products.Local.ToBindingList();
-
+            this.customerBindingSource.DataSource = context.Customers.Local.ToBindingList();
         }
 
         private void onSaveClick(object sender, EventArgs e)
@@ -53,7 +54,6 @@ namespace Geisler
                 this.productsBindingSource.DataSource = (from p in context.Products
                                                          where p.CategoryID == category.CategoryId
                                                          select p).ToList();
-                this.productsGridView.Refresh();
 
                 //this.productsBindingSource.DataSource = new BindingList<Product>(context.Products
                 //    .Where(p => p.CategoryID == category.CategoryId).ToList());
@@ -68,6 +68,11 @@ namespace Geisler
         private void CategoryForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void customersSaveButton_Click(object sender, EventArgs e)
+        {
+            context.SaveChanges();
         }
     }
 }
