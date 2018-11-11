@@ -28,8 +28,10 @@ namespace Geisler
             this.categoryBindingSource.DataSource = context.Categories.Local.ToBindingList();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void onSaveClick(object sender, EventArgs e)
         {
+            context.SaveChanges();
+            this.dataGridView1.Refresh();
 
         }
     }
