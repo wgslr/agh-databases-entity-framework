@@ -97,7 +97,21 @@ namespace Geisler
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            
+            Order ord = new Order();
+            ord.CustomerName = (String) this.customerCombo.SelectedValue;
+            //ord.
+        }
+
+        private void productCombo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (this.productCombo.SelectedValue != null)
+            {
+                int productId = (int) this.productCombo.SelectedValue;
+                Product p = (Product)this.context.Products.Find(productId);
+
+                this.quantityInput.Maximum = p.UnitsInStock;
+            }
+
         }
 
     }

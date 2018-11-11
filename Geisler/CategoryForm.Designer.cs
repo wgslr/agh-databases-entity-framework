@@ -58,6 +58,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityInput = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).BeginInit();
@@ -68,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityInput)).BeginInit();
             this.SuspendLayout();
             // 
             // categoriesGridView
@@ -201,6 +204,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.quantityInput);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.categoryCombo);
             this.tabPage2.Controls.Add(this.orderButton);
@@ -239,9 +244,9 @@
             // 
             // orderButton
             // 
-            this.orderButton.Location = new System.Drawing.Point(9, 87);
+            this.orderButton.Location = new System.Drawing.Point(8, 114);
             this.orderButton.Name = "orderButton";
-            this.orderButton.Size = new System.Drawing.Size(175, 23);
+            this.orderButton.Size = new System.Drawing.Size(176, 23);
             this.orderButton.TabIndex = 4;
             this.orderButton.Text = "Order";
             this.orderButton.UseVisualStyleBackColor = true;
@@ -291,6 +296,7 @@
             this.productCombo.Size = new System.Drawing.Size(121, 21);
             this.productCombo.TabIndex = 0;
             this.productCombo.ValueMember = "productId";
+            this.productCombo.SelectedValueChanged += new System.EventHandler(this.productCombo_SelectedValueChanged);
             // 
             // tabPage3
             // 
@@ -338,6 +344,32 @@
             this.descriptionDataGridViewTextBoxColumn1.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
             // 
+            // quantityInput
+            // 
+            this.quantityInput.Location = new System.Drawing.Point(63, 88);
+            this.quantityInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.quantityInput.Name = "quantityInput";
+            this.quantityInput.Size = new System.Drawing.Size(120, 20);
+            this.quantityInput.TabIndex = 7;
+            this.quantityInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Quantity";
+            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +390,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -393,5 +426,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox categoryCombo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown quantityInput;
     }
 }
