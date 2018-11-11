@@ -56,7 +56,6 @@ namespace Geisler
                 //this.productsBindingSource.DataSource = (from p in context.Products
                 //                                         where p.CategoryID == category.CategoryId
                 //                                         select p).ToList();
-                //this.productsBindingSource.DataSource = context.Products.Local.Where(p => p.CategoryID == category.CategoryId).ToList();
 
                 this.productsBindingSource.DataSource = new BindingList<Product>(
                     context.Products.Where(p => p.CategoryID == category.CategoryId).ToList());
@@ -138,7 +137,12 @@ namespace Geisler
             int rowIdx = e.RowIndex;
             
             var row = this.productsGridView.Rows[rowIdx];
-            if (row != null && ((Product)row.DataBoundItem).productId == 0)
+
+            if (row == null || row.DataBoundItem == null)
+            {
+                return;
+            }
+            if (((Product)row.DataBoundItem).productId == 0)
             {
                 string name = (string)row.Cells[3].Value;
                 if (name != null)
@@ -154,10 +158,6 @@ namespace Geisler
             }
         }
 
-        private void productsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
     }
 }

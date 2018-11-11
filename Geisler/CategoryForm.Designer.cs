@@ -147,7 +147,6 @@
             this.productsGridView.Name = "productsGridView";
             this.productsGridView.Size = new System.Drawing.Size(582, 150);
             this.productsGridView.TabIndex = 2;
-            this.productsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsGridView_CellContentClick);
             this.productsGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.onDefaultProductValuesNeeded);
             this.productsGridView.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsGridView_RowLeave);
             // 
