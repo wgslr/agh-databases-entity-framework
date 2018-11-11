@@ -30,20 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saveButton = new System.Windows.Forms.Button();
             this.productsGrid = new System.Windows.Forms.DataGridView();
             this.productId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -61,29 +61,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(447, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCategorySelected);
-            // 
-            // categoryIdDataGridViewTextBoxColumn
-            // 
-            this.categoryIdDataGridViewTextBoxColumn.DataPropertyName = "CategoryId";
-            this.categoryIdDataGridViewTextBoxColumn.HeaderText = "CategoryId";
-            this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
-            this.categoryIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataSource = typeof(Geisler.Category);
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCategorySelected);
             // 
             // saveButton
             // 
@@ -117,12 +95,6 @@
             this.productId.Name = "productId";
             this.productId.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
             // Unitprice
             // 
             this.Unitprice.DataPropertyName = "Unitprice";
@@ -133,6 +105,35 @@
             // 
             this.productsBindingSource.DataMember = "Products";
             this.productsBindingSource.DataSource = this.categoryBindingSource;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(Geisler.Category);
+            // 
+            // categoryIdDataGridViewTextBoxColumn
+            // 
+            this.categoryIdDataGridViewTextBoxColumn.DataPropertyName = "CategoryId";
+            this.categoryIdDataGridViewTextBoxColumn.HeaderText = "CategoryId";
+            this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
+            this.categoryIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
             // CategoryForm
             // 
@@ -145,9 +146,9 @@
             this.Name = "CategoryForm";
             this.Text = "CategoryForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

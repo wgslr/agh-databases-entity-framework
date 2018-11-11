@@ -28,7 +28,7 @@ namespace Geisler
             context.Products.Load();
             this.categoryBindingSource.DataSource = context.Categories.Local.ToBindingList();
             this.productsBindingSource.DataSource = context.Products.Local.ToBindingList();
-            
+
         }
 
         private void onSaveClick(object sender, EventArgs e)
@@ -38,18 +38,14 @@ namespace Geisler
 
         }
 
-        private void onSaveClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void onCategorySelected(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
-            //var category = ;
-            //var categoryId = category.Cells[0];
+            Category category = (Category)dataGridView1.Rows[row].DataBoundItem;
 
-            Category catObj = (Category) dataGridView1.Rows[row].DataBoundItem;
+            this.productsBindingSource.DataSource = (from p in context.Products
+                                                     where p.CategoryID == category.CategoryId
+                                                     select p).ToList();
         }
     }
 }
