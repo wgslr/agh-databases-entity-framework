@@ -74,7 +74,12 @@
     <Compile Include="Migrations\201811102246368_AddUnitprice.Designer.cs">
       <DependentUpon>201811102246368_AddUnitprice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811111558113_AddOrders.cs" />
+    <Compile Include="Migrations\201811111558113_AddOrders.Designer.cs">
+      <DependentUpon>201811111558113_AddOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="ProdContext.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
@@ -106,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811102246368_AddUnitprice.resx">
       <DependentUpon>201811102246368_AddUnitprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811111558113_AddOrders.resx">
+      <DependentUpon>201811111558113_AddOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

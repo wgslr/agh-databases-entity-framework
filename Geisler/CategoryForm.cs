@@ -94,5 +94,11 @@ namespace Geisler
             }
             this.productCombo.SelectedIndex = -1;
         }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
