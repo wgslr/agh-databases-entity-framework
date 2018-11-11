@@ -64,5 +64,10 @@ namespace Geisler
         {
             e.Row.Cells["CategoryId"].Value = currentCategoryId;
         }
+
+        private void CategoryForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

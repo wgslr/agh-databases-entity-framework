@@ -32,23 +32,29 @@
             this.categoriesGridView = new System.Windows.Forms.DataGridView();
             this.saveButton = new System.Windows.Forms.Button();
             this.productsGridView = new System.Windows.Forms.DataGridView();
+            this.productId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitsInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitsInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // categoriesGridView
             // 
             this.categoriesGridView.AutoGenerateColumns = false;
             this.categoriesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -58,16 +64,16 @@
             this.descriptionDataGridViewTextBoxColumn});
             this.categoriesGridView.DataSource = this.categoryBindingSource;
             this.categoriesGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.categoriesGridView.Location = new System.Drawing.Point(13, 13);
-            this.categoriesGridView.Name = "dataGridView1";
-            this.categoriesGridView.Size = new System.Drawing.Size(447, 150);
+            this.categoriesGridView.Location = new System.Drawing.Point(6, 7);
+            this.categoriesGridView.Name = "categoriesGridView";
+            this.categoriesGridView.Size = new System.Drawing.Size(582, 150);
             this.categoriesGridView.TabIndex = 0;
             this.categoriesGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCategorySelected);
             this.categoriesGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCategorySelected);
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(13, 169);
+            this.saveButton.Location = new System.Drawing.Point(6, 319);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 1;
@@ -75,7 +81,7 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.onSaveClick);
             // 
-            // productsGrid
+            // productsGridView
             // 
             this.productsGridView.AutoGenerateColumns = false;
             this.productsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -87,16 +93,48 @@
             this.Unitprice});
             this.productsGridView.DataSource = this.productsBindingSource;
             this.productsGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.productsGridView.Location = new System.Drawing.Point(13, 198);
-            this.productsGridView.Name = "productsGrid";
+            this.productsGridView.Location = new System.Drawing.Point(6, 163);
+            this.productsGridView.Name = "productsGridView";
             this.productsGridView.Size = new System.Drawing.Size(582, 150);
             this.productsGridView.TabIndex = 2;
             this.productsGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.onDefaultProductValuesNeeded);
+            // 
+            // productId
+            // 
+            this.productId.DataPropertyName = "productId";
+            this.productId.HeaderText = "productId";
+            this.productId.Name = "productId";
+            this.productId.ReadOnly = true;
+            // 
+            // CategoryID
+            // 
+            this.CategoryID.DataPropertyName = "CategoryID";
+            this.CategoryID.HeaderText = "CategoryID";
+            this.CategoryID.Name = "CategoryID";
+            this.CategoryID.ReadOnly = true;
+            // 
+            // UnitsInStock
+            // 
+            this.UnitsInStock.DataPropertyName = "UnitsInStock";
+            this.UnitsInStock.HeaderText = "UnitsInStock";
+            this.UnitsInStock.Name = "UnitsInStock";
+            // 
+            // Unitprice
+            // 
+            this.Unitprice.DataPropertyName = "Unitprice";
+            this.Unitprice.HeaderText = "Unitprice";
+            this.Unitprice.Name = "Unitprice";
             // 
             // productsBindingSource
             // 
             this.productsBindingSource.DataMember = "Products";
             this.productsBindingSource.DataSource = this.categoryBindingSource;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // categoryBindingSource
             // 
@@ -121,52 +159,64 @@
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
-            // productId
+            // tabControl1
             // 
-            this.productId.DataPropertyName = "productId";
-            this.productId.HeaderText = "productId";
-            this.productId.Name = "productId";
-            this.productId.ReadOnly = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(646, 431);
+            this.tabControl1.TabIndex = 3;
             // 
-            // CategoryID
+            // tabPage1
             // 
-            this.CategoryID.DataPropertyName = "CategoryID";
-            this.CategoryID.HeaderText = "CategoryID";
-            this.CategoryID.Name = "CategoryID";
-            this.CategoryID.ReadOnly = true;
+            this.tabPage1.Controls.Add(this.categoriesGridView);
+            this.tabPage1.Controls.Add(this.productsGridView);
+            this.tabPage1.Controls.Add(this.saveButton);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(638, 405);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Products";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // UnitsInStock
+            // tabPage2
             // 
-            this.UnitsInStock.DataPropertyName = "UnitsInStock";
-            this.UnitsInStock.HeaderText = "UnitsInStock";
-            this.UnitsInStock.Name = "UnitsInStock";
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(638, 405);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Orders";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // tabPage3
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // Unitprice
-            // 
-            this.Unitprice.DataPropertyName = "Unitprice";
-            this.Unitprice.HeaderText = "Unitprice";
-            this.Unitprice.Name = "Unitprice";
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(638, 405);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Customers";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 455);
-            this.Controls.Add(this.productsGridView);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.categoriesGridView);
+            this.Controls.Add(this.tabControl1);
             this.Name = "CategoryForm";
             this.Text = "CategoryForm";
+            this.Load += new System.EventHandler(this.CategoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -186,5 +236,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitsInStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unitprice;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
