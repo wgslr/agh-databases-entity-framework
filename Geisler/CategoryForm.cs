@@ -74,5 +74,25 @@ namespace Geisler
         {
             context.SaveChanges();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerCombo_DropDown(object sender, EventArgs e)
+        {
+            this.customerCombo.DataSource = context.Customers.Local.ToBindingList(); 
+        }
     }
 }
